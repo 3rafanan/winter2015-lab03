@@ -8,7 +8,7 @@
  *
  * ------------------------------------------------------------------------
  */
-class Welcome extends Application {
+class First extends Application {
 
     function __construct() {
         parent::__construct();
@@ -19,23 +19,9 @@ class Welcome extends Application {
     //-------------------------------------------------------------
 
     function index() {
-        $this->data['pagebody'] = 'homepage';    // this is the view we want shown
-        // build the list of authors, to pass on to our view
-        $source = $this->quotes->all();
-        $authors = array();
-        foreach ($source as $record) {
-            $authors[] = array('who' => $record['who'], 'mug' => $record['mug'], 'href' => $record['where']);
-        }
-        $this->data['authors'] = $authors;
-
-        $this->render();
-    }
-
-    function shucks() {
-
         $this->data['pagebody'] = 'justone';    // this is the view we want shown
         // build the list of authors, to pass on to our view
-        $source = $this->quotes->get(2);
+        $source = $this->quotes->first();
         //$authors = array();
         //foreach ($source as $record) {
         //    $authors[] = array('who' => $record['who'], 'mug' => $record['mug'], 'href' => $record['where']);
@@ -53,7 +39,24 @@ class Welcome extends Application {
         $this->render();
     }
 
+    function zzz() {
+        $this->index();
+    }
+
+    function gimme($index) {
+        $this->data['pagebody'] = 'justone';
+
+        $source = $this->quotes->get($index);
+
+        $this->data['who'] = $source['who'];
+        $this->data['mug'] = $source['mug'];
+        $this->data['href'] = $source['where'];
+        $this->data['what'] = $source['what'];
+
+
+        $this->render();
+    }
 }
 
-/* End of file Welcome.php */
-/* Location: application/controllers/Welcome.php */
+/* End of file First.php */
+/* Location: application/controllers/First.php */

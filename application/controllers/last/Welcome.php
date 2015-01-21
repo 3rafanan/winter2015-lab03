@@ -19,23 +19,9 @@ class Welcome extends Application {
     //-------------------------------------------------------------
 
     function index() {
-        $this->data['pagebody'] = 'homepage';    // this is the view we want shown
-        // build the list of authors, to pass on to our view
-        $source = $this->quotes->all();
-        $authors = array();
-        foreach ($source as $record) {
-            $authors[] = array('who' => $record['who'], 'mug' => $record['mug'], 'href' => $record['where']);
-        }
-        $this->data['authors'] = $authors;
-
-        $this->render();
-    }
-
-    function shucks() {
-
         $this->data['pagebody'] = 'justone';    // this is the view we want shown
         // build the list of authors, to pass on to our view
-        $source = $this->quotes->get(2);
+        $source = $this->quotes->last();
         //$authors = array();
         //foreach ($source as $record) {
         //    $authors[] = array('who' => $record['who'], 'mug' => $record['mug'], 'href' => $record['where']);
@@ -48,7 +34,6 @@ class Welcome extends Application {
         $this->data['mug'] = $source['mug'];
         $this->data['href'] = $source['where'];
         $this->data['what'] = $source['what'];
-
 
         $this->render();
     }
