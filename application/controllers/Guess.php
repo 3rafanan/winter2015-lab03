@@ -19,9 +19,9 @@ class Guess extends Application {
     //-------------------------------------------------------------
 
     function index() {
-        $this->data['pagebody'] = 'justone';    // this is the view we want shown
+        $this->data['pagebody'] = 'justone';  // show justone
 
-        // build the list of authors, to pass on to our view
+        // get author 4 from the model
         $source = $this->quotes->get(4);
 
         $this->data['who'] = $source['who'];
@@ -33,5 +33,5 @@ class Guess extends Application {
     }
 }
 
-/* End of file Welcome.php */
-/* Location: application/controllers/Welcome.php */
+/* End of file Guess.php */
+/* Location: application/controllers/Guess.php */

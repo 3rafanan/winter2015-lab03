@@ -19,9 +19,9 @@ class Bingo extends Application {
     //-------------------------------------------------------------
 
     function index() {
-        $this->data['pagebody'] = 'justone';    // this is the view we want shown
+        $this->data['pagebody'] = 'justone';  // show justone
 
-        // build the list of authors, to pass on to our view
+        // get author 5 from the model
         $source = $this->quotes->get(5);
 
         $this->data['who'] = $source['who'];
@@ -33,9 +33,9 @@ class Bingo extends Application {
     }
 
     function wisdom() {
-        $this->data['pagebody'] = 'justone';    // this is the view we want shown
+        $this->data['pagebody'] = 'justone';  // show justone
 
-        // build the list of authors, to pass on to our view
+        // get author 6 from the model
         $source = $this->quotes->get(6);
 
         $this->data['who'] = $source['who'];
@@ -47,5 +47,5 @@ class Bingo extends Application {
     }
 }
 
-/* End of file Welcome.php */
-/* Location: application/controllers/Welcome.php */
+/* End of file Bingo.php */
+/* Location: application/controllers/Bingo.php */

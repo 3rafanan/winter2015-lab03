@@ -19,16 +19,10 @@ class First extends Application {
     //-------------------------------------------------------------
 
     function index() {
-        $this->data['pagebody'] = 'justone';    // this is the view we want shown
-        // build the list of authors, to pass on to our view
-        $source = $this->quotes->first();
-        //$authors = array();
-        //foreach ($source as $record) {
-        //    $authors[] = array('who' => $record['who'], 'mug' => $record['mug'], 'href' => $record['where']);
-        //}
-        //$authors[] = array('who' => $source['who'], 'mug' => $source['mug'], 'href' => $source['where']);
+        $this->data['pagebody'] = 'justone'; // show justone
 
-        //$this->data['authors'] = array('who' => $source['who'], 'mug' => $source['mug'], 'href' => $source['where']);
+        // get first author from the model
+        $source = $this->quotes->first();
 
         $this->data['who'] = $source['who'];
         $this->data['mug'] = $source['mug'];
@@ -40,12 +34,14 @@ class First extends Application {
     }
 
     function zzz() {
+        // same author as the index
         $this->index();
     }
 
     function gimme($index) {
-        $this->data['pagebody'] = 'justone';
+        $this->data['pagebody'] = 'justone'; // show just one
 
+        // get author specified by the index
         $source = $this->quotes->get($index);
 
         $this->data['who'] = $source['who'];

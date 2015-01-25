@@ -19,16 +19,9 @@ class Welcome extends Application {
     //-------------------------------------------------------------
 
     function index() {
-        $this->data['pagebody'] = 'justone';    // this is the view we want shown
-        // build the list of authors, to pass on to our view
+        $this->data['pagebody'] = 'justone'; // show justone
+        // Get last author quote
         $source = $this->quotes->last();
-        //$authors = array();
-        //foreach ($source as $record) {
-        //    $authors[] = array('who' => $record['who'], 'mug' => $record['mug'], 'href' => $record['where']);
-        //}
-        //$authors[] = array('who' => $source['who'], 'mug' => $source['mug'], 'href' => $source['where']);
-
-        //$this->data['authors'] = array('who' => $source['who'], 'mug' => $source['mug'], 'href' => $source['where']);
 
         $this->data['who'] = $source['who'];
         $this->data['mug'] = $source['mug'];
@@ -41,4 +34,4 @@ class Welcome extends Application {
 }
 
 /* End of file Welcome.php */
-/* Location: application/controllers/Welcome.php */
+/* Location: application/controllers/last/Welcome.php */
